@@ -3,9 +3,9 @@
 function App() {
   return(
     <>
-    <MessageDemo name = "Umair"/>
-    <MessageDemo name="Waseem"/>
-    <MessageDemo name="Khan"/>
+    <MessageDemo name = "Umair" email="u@gamil.com"/>
+    <MessageDemo name="Waseem" email="w@gmail.com"/>
+    <MessageDemo name="Khan" email="k@gmail.com"/>
     <MessageDemo id="230340320124"/>
     
     
@@ -13,10 +13,10 @@ function App() {
     </>
   );
 }
-function MessageDemo(props) {
+function MessageDemo({name, email}) {
   return (
     <>
-    <h5>Hello {props.name} {props.id}</h5>
+    <h5>Hello {name} {email}</h5>
     {/* <h5>CDAC ID:- {props.id}</h5> */}
     </>
   );
