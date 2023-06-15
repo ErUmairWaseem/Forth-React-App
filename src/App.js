@@ -3,18 +3,21 @@
 function App() {
   return(
     <>
-    <MessageDemo/>
-    <MessageDemo/>
-    <MessageDemo/>
+    <MessageDemo name = "Umair"/>
+    <MessageDemo name="Waseem"/>
+    <MessageDemo name="Khan"/>
+    <MessageDemo id="230340320124"/>
+    
     
     
     </>
   );
 }
-function MessageDemo() {
+function MessageDemo(props) {
   return (
     <>
-    <h5>Hello India</h5>
+    <h5>Hello {props.name} {props.id}</h5>
+    {/* <h5>CDAC ID:- {props.id}</h5> */}
     </>
   );
 }
