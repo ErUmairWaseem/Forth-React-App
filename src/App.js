@@ -1,26 +1,37 @@
+import { useState } from "react";
 
 
 function App() {
   return(
     <>
-    <MessageDemo name = "Umair" email="u@gamil.com"/>
-    <MessageDemo name="Waseem" email="w@gmail.com"/>
-    <MessageDemo name="Khan" email="k@gmail.com"/>
-    <MessageDemo id="230340320124"/>
-    
-    
-    
+    <h1>Stateful List</h1>
+    <ListDemo/>
+   
     </>
   );
 }
-function MessageDemo({name, email}) {
-  return (
-    <>
-    <h5>Hello {name} {email}</h5>
-    {/* <h5>CDAC ID:- {props.id}</h5> */}
-    </>
-  );
-}
-  
-export default App;
 
+function ListDemo() {
+  let [list, setList] = useState(["Delhi"]);
+
+  let addItemAction = () => {
+    let inputRef = document.querySelector("#id1");
+    let inputValue = inputRef.value;
+    let newList = [inputValue, ...list]
+
+    setList(newList);
+  };
+
+  return(
+    <>
+    <input type="text" id="id1" placeholder="Enter User Input" />
+    <input type="button" value="Add New Value" onClick={addItemAction} />
+
+      {list.map((item) => (
+        <h1>{item}</h1>
+      ))}
+    </>
+  );
+}
+
+export default App;
