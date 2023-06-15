@@ -1,50 +1,35 @@
+import { useState } from "react";
 
 
 function App() {
   return(
     <>
-    <h1>Props Demo</h1>
+    <h1>Stateful LIst</h1>
     <ListDemo/>
-
     </>
   );
 }
 
 function ListDemo() {
-  let data = "Hello Universe";
-  let list = ["", "", "", ""];
 
-  let list1 = [];
-  for (let i = 0; i < 10; i++) {
-    list1.push("");
-    
-  }
+  let [list, setList] = useState(["Delhi"]);
 
+  let addItemAction = () =>{
+    let newList = ["Mumbai", ...list];
+    console.log(newList);
+
+    setList(newList);
+  };
 
   return(
     <>
-      <h1>{data}</h1>
-
-      {/* {list.forEach((item) => item)} */}
-
-
+    <input type="button" value="Add New Item" onClick={addItemAction} />
       {list.map((item) => (
-        <div>
-          <h1>Hello Universe</h1>
-        </div>
+        <h1>Hello {item}</h1>
       ))}
-
-      <hr />
-
-      {list.map((item) => (
-       <>
-       <h1>hellooouuu</h1>
-       </>
-      ))}
-
     </>
-  );
+  ); 
 }
- 
+
 export default App;
 
