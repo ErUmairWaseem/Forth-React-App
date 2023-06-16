@@ -10,6 +10,7 @@ function App() {
 }
 
 function MyTodo() {
+  let [successBox, setSuccessBox] = useState(false);
   let [todo, setTodo] = useState({task: "", description: ""});
   
   let handleChangeTaskAction = (e) =>{
@@ -27,8 +28,13 @@ function MyTodo() {
     console.log(todo);
     //alert(todo.task + todo.description);
 
-    let url = `http://localhost:4000/addtodo?task=${todo.task}description=${todo.description}`
+    let url = `http://localhost:4000/addtodo?task=${todo.task}&description=${todo.description}`;
     await fetch(url);
+
+    let newtodo = {task:"", description:""};
+    setTodo(newtodo);
+
+    setSuccessBox(true);
   };
   return (
     <>
@@ -51,6 +57,11 @@ function MyTodo() {
       ></textarea>
      
       <input type="button" value="Add Todo" onClick={addTodoAction}/>
+
+      {successBox && (
+        <div className="alert alert-success">Operation Success</div>
+      )}
+      
     </>
   );
 }
