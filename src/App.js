@@ -1,80 +1,45 @@
-import {useRef, useState } from "react";
+import { useState } from "react";
 
-
-function App() {
+function  App() {
   return(
     <>
-    <h1>My Project</h1>
-    <ListDemo/>
+       <h1>My TODO</h1>
+       <MyToDo />
     </>
+   
   );
 }
 
-function ListDemo() {
-  let inputRef = useRef();
-  let [list, setList] = useState(["Delhi"]);
+function MyToDo() {
 
-  let addItemAction = () => {
-    
-    let inputValue = inputRef.current.value;
-    let newList = [inputValue, ...list];
 
-    setList(newList);
+  let[todo, setTodo] = useState({task : ""});
 
-    inputRef.current.value = "";
+  let handleTaskAction = (e) =>{
+    console.log(e.target);
+
+    let newTodo = {...todo, task: e.target.value}
+    setTodo(newTodo);
+
   };
 
+  let addTodoAction = () => {
+    alert (todo.task)
+  };
+  
+
   return(
     <>
-    <div className="row justigy-content-center"
-    style={{ height: "100vh" }}
-    >
-      <div className="col-sm-12 col-md-6">
-      <h1>Ragistration App</h1>
       <input 
-      className="form-control"
+      className="form-control" 
       type="text" 
-      id="id1" 
-      ref={inputRef}
-      placeholder="Enter User Input" 
+      placeholder="Enter Task"
+      value={todo.task}
+      onChange={handleTaskAction}
       />
-      <input 
-      className="form-control"
-      type="text" 
-      id="id1" 
-      ref={inputRef}
-      placeholder="Enter Password" 
-      />
-      <input 
-      className="form-control"
-      type="text" 
-      id="id1" 
-      ref={inputRef}
-      placeholder="Enter Email" 
-      />
-      <input type="button"
-      value="Login" 
-      onClick={addItemAction} 
-      />
-      </div>
-    </div>
+      {/* <input className="form-control" type="text" placeholder="Enter Discription"/> */}
+      <input type="button" value="Add Todo" onClick={addTodoAction}/>
     </>
   );
 }
-function MessageDemo({message}) {
-  return(
-    <>
-       <h1>hello {message}</h1>
-             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio enim inventore quo iure modi incidunt tenetur excepturi magni consectetur pariatur error assumenda reiciendis, totam maxime hic.
-
-             </p>
-             <div>
-              <input type="button" value="&#128077;" />
-              <input type="button" value="&#128078;" />
-             </div>
-    </>
-  ); 
-}
-
 export default App;
