@@ -1,12 +1,13 @@
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import MyTodo from "./pages/MyTodo";
 import MyRegistration from "./pages/MyRegistration";
+import MyNavigationLinks from "./pages/NavigationLinks";
 
 function App() {
   return (
     <>
    <BrowserRouter>
-   <NavigationLinks />
+   <MyNavigationLinks />
     <Routes>
       <Route path="/" element={<h1>Hello</h1>}/>
       <Route path="/home" element={<h1>Home</h1>}/>
@@ -19,17 +20,7 @@ function App() {
   );
 }
 
-function NavigationLinks() {
-  return (
-    <>
-    <Link to={"/home"}>Home | </Link>
-    <Link to={"/todo"}>Todo | </Link>
-    <Link to={"/registration"}>Registration</Link>
 
-
-    </>
-  );
-}
 
 
 export default App;
