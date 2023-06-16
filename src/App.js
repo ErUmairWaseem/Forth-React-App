@@ -6,12 +6,7 @@ function App() {
   return (
     <>
    <BrowserRouter>
-    
-    <Link to={"/home"}>Home | </Link>
-    <Link to={"/todo"}>Todo | </Link>
-    <Link to={"/registration"}>Registration</Link>
-
-
+   <NavigationLinks />
     <Routes>
       <Route path="/" element={<h1>Hello</h1>}/>
       <Route path="/home" element={<h1>Home</h1>}/>
@@ -20,6 +15,18 @@ function App() {
       <Route path="*" element={<h1>Page Not Found</h1>}/>
     </Routes>
     </BrowserRouter>
+    </>
+  );
+}
+
+function NavigationLinks() {
+  return (
+    <>
+    <Link to={"/home"}>Home | </Link>
+    <Link to={"/todo"}>Todo | </Link>
+    <Link to={"/registration"}>Registration</Link>
+
+
     </>
   );
 }
