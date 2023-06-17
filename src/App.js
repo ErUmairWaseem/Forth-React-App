@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Route, Routes, useNavigate } from "react-router-do
 import MyTodo from "./pages/MyTodo";
 import MyRegistration from "./pages/MyRegistration";
 import MyNavigationLinks from "./pages/NavigationLinks";
+import MyNavigationLinksUsingButton from "./pages/MyNavigationLinksUsingButton";
 
 function App() {
   return (
@@ -21,27 +22,5 @@ function App() {
     </>
   );
 }
-
-function MyNavigationLinksUsingButton() {
-  const navigate = useNavigate();
-
-  let goToHomeAction = () => {
-    navigate ("/home");
-  };
-  let goToTodoAction = () => {
-    navigate("/todo");
-  };
-  let goToRegistrationAction = () => {
-    navigate("/registration")
-  };
-   return (
-    <div>
-      <input type="button" value="Home" onClick={goToHomeAction} />
-      <input type="button" value="ToDo" onClick={goToTodoAction} />
-      <input type="button" value="Registration" onClick={goToRegistrationAction}/>
-    </div>
-   );
-}
-
 
 export default App;
